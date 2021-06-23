@@ -11,7 +11,7 @@ client = discord.Client()
 
 sad_words = [
     'sadden', 'sad', 'unhappy', 'suck', 'lonely', 'alone', 'mournful',
-    'melancholy', 'down', 'doleful', 'downcast', 'gloom', 'glum', 'gloomy',
+    'melancholy', ' down ', 'doleful', 'downcast', 'gloom', 'glum', 'gloomy',
     'sorrowful', 'sorrow', 'dejected', 'rejected', 'desolate', 'downhearted',
     'broken heart', 'depressed', 'tragic', 'disconsolate', 'dreary',
     'lonesome', 'tragedy', 'sorry', 'lugubrious', 'sadness', 'wistful',
@@ -50,12 +50,12 @@ if "responding" not in db.keys():
 def embed_help():
     embed = discord.Embed(
         title="𝘾𝙊𝙈𝙈𝘼𝙉𝘿𝙎",
-        color=discord.Color.blurple())
+        color=discord.Color.from_rgb(255, 126, 0))
     embed.add_field(name="𝙎𝙩𝙖𝙣𝙙𝙖𝙧𝙙", value="$hello to greet bot\n$use to get this embed", inline=False)
     embed.add_field(name="𝙄𝙣𝙨𝙥𝙞𝙧𝙖𝙩𝙞𝙤𝙣", value="$inspire to get an inspirational quote", inline=False)
     embed.add_field(name="𝙐𝙩𝙞𝙡𝙞𝙩𝙮", value="$new to add encouraging message\n$list to see a list of added messages\n$del [index of added message] to delete message\n$responding true to turn ON Auto-Responding Feature\n$responding false to turn OFF Auto-Responding Feature", inline=False)
     embed.set_footer(text="AUTO RESPONDING FEATURE:-\nThis feature allows the bot to respond automatically if it detects a sad word in a user's sentence. Try 'I am sad'")
-    embed.set_thumbnail(url="https://wallpapercave.com/wp/wp4676569.jpg")
+    embed.set_thumbnail(url="https://unsplash.com/photos/XMcoTHgNcQA")
     return embed
 
 
@@ -97,7 +97,7 @@ async def on_message(message):
     
         if 'encouragements' in db.keys():
             options += db['encouragements']
-        if any(word in msg for word in sad_words):
+        if any(word in msg.lower() for word in sad_words):
             await message.channel.send(random.choice(options))
     
     if message.author == client.user:
@@ -111,12 +111,12 @@ async def on_message(message):
     
     if msg.startswith('$inspire'):
         quote = get_quote()
-        await message.channel.send(embed=discord.Embed(description=quote, color=message.author.color))
+        await message.channel.send(embed=discord.Embed(description=quote, color=discord.Color.from_rgb(255, 126, 0)))
     
     if msg.startswith('$new'):
         encouraging_message = msg.split("$new ", 1)[1]
         update_encouragements(encouraging_message)
-        await message.channel.send('New encouraging message added =D')
+        await message.channel.send('New encouraging message added.')
     
     if msg.startswith('$del'):
         encouragements = []
@@ -139,10 +139,10 @@ async def on_message(message):
     
         if value.lower() == 'true':
             db["responding"] = True
-            await message.channel.send(embed=discord.Embed(description="Responding is ON", color=message.author.color))
+            await message.channel.send(embed=discord.Embed(description="Responding is ON", color=discord.Color.from_rgb(255, 126, 0)))
         else:
             db["responding"] = False
-            await message.channel.send(embed=discord.Embed(description="Responding is OFF", color=message.author.color))
+            await message.channel.send(embed=discord.Embed(description="Responding is OFF", color=discord.Color.from_rgb(255, 126, 0)))
     
     if msg.startswith('$use'):
         await message.channel.send(embed=embed_help())
