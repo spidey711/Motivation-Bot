@@ -13,3 +13,7 @@ _Auto-Responding Feature_
 
 _<h2>Auto-Responding Feature</h2>_
 This feature allows the bot to send encouraging and comforting messages whenever it detects a sad word.
+
+_<h2>Details</h2>_
+This bot is hosted at <a href="">UptimeRobot</a>.<br>
+I used <a href="https://www.replit.com">Replit</a> as the IDE to code in.
