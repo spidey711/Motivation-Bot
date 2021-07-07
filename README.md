@@ -1,17 +1,14 @@
 # Motivation-Bot
 
-1) Made purely with python.
-2) Used Uptime Robot for hosting the bot.
-Link : https://www.uptimerobot.com
-3) Used Repl.it for the coding portion of this bot.
-Link : https://www.replit.com
-4) Make sure you have all modules/libraries installed required for this to work.
-5) "main.py" is the main file for the bot and includes all functions and commands.
-6) "keep_alive.py" is the server file for the bot.
-7) Make sure you have added the bot on Uptime Robot, as the file "keep_alive.py" will work only then. 
+_<h2>Motivation</h2>_
+I made this bot for people who are feeling down and hope that the bot can inspire or lighten up the mood✨<br>
+Prefix `$`
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVmFD5Q8Mvp_IByn-HG74WGfD3VA3BVPkDBQ&usqp=CAU"></img>
 
-NOTE : For security reasons, I have hidden the .env file which contains the token of the bot, and it is not supposed to be shared with anyone. Just be sure to add your bot's token
-in the .env file and it will work.
-You can also make changes to the code << after downloading >> it according to your needs i.e. increase functionality or just mess around
+_<h2>Features</h2>_
+_Send inspirational quotes_
+_Tell Jokes_
+_Auto-Responding Feature_
 
-That is pretty much all you need to know.
+_<h2>Auto-Responding Feature</h2>_
+This feature allows the bot to send encouraging and comforting messages whenever it detects a sad word.
