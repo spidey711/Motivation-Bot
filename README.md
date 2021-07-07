@@ -7,8 +7,8 @@ I made this bot for people who are feeling down and hope that the bot can inspir
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVmFD5Q8Mvp_IByn-HG74WGfD3VA3BVPkDBQ&usqp=CAU"></img>
 
 _<h2>Features</h2>_
-_Send inspirational quotes_
-_Tell Jokes_
+_Send inspirational quotes_<br>
+_Tell Jokes_<br>
 _Auto-Responding Feature_
 
 _<h2>Auto-Responding Feature</h2>_
