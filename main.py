@@ -48,6 +48,8 @@ url_thumbnails = ["https://i.pinimg.com/236x/2e/34/aa/2e34aa821c3084fe358db78579
 "https://i.pinimg.com/236x/b1/9c/20/b19c20669f5ae712c6311b6d36e4a79e.jpg",
 "https://i.pinimg.com/236x/21/05/54/210554bd114cb24d96b566169055cfbd.jpg"]
 
+joke_links = []
+
 if "responding" not in db.keys():
     db["responding"] = True
 
@@ -90,14 +92,32 @@ def delete_encouragements(index):
 
 @client.event
 async def on_ready():
+    global joke_links
     print('We have logged in as {0.user}'.format(client))
-
+    # JOKES
+    raw = requests.get("https://in.pinterest.com/joann1622/funny-jokes-humor/")
+    html_content = raw.content.decode()
+    stop = 0
+    for i in range(0, 500):
+        a = html_content.find("GrowthUnauthPinImage__Image", stop)
+        b = html_content.find('src="', a) + len('src="')
+        c = html_content.find('" ', b)
+        stop = c
+        if i == 0:
+            continue
+        link = html_content[b:c]
+        if link.find("</div>") != -1 or link.find("<html") != -1:
+            continue
+        joke_links += [link]
 
 @client.event
 async def on_message(message):
 
     msg = message.content
     
+    if msg.startswith('$joke'):
+        await message.channel.send(random.choice(joke_links))
+
     if db["responding"] == True:
         options = starter_encouragements
     
